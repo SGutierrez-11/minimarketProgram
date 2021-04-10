@@ -1,24 +1,18 @@
 package exceptions;
 
-import model.DocumentType;
-
+@SuppressWarnings("serial")
 public class TIException extends Exception{
 	
-	private DocumentType typeDenied;
-	private DocumentType currentType;
+	private String typeDenied;
 	
-	public TIException(DocumentType deniedType,DocumentType typeCurrent) {
+	public TIException(String deniedType) {
 		super("This person cannot enter the market");
 		typeDenied=deniedType;
-		currentType = typeCurrent;
 	}
 
-	public DocumentType getTypeDenied() {
+	public String getTypeDenied() {
 		return typeDenied;
 	}
 
-	public DocumentType getCurrentType() {
-		return currentType;
-	}
 	
 }

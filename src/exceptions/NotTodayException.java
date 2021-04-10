@@ -1,6 +1,8 @@
 package exceptions;
 
+@SuppressWarnings("serial")
 public class NotTodayException extends Exception{
+
 	private int day;
 	private int currentId;
 	public NotTodayException(int today, int idCurrent) {

@@ -3,13 +3,14 @@ package model;
 public class Document {
 	
 	private int numberId;
-	private DocumentType type;
+	private String type;
 	private int day;
 	
-	public Document(DocumentType type, int numberId, int day) {
+	public Document(String type, int numberId, int day) {
 		
 		this.type=type;
 		this.numberId=numberId;
+		this.day=day;
 		
 	}
 
@@ -21,11 +22,11 @@ public class Document {
 		this.numberId = numberId;
 	}
 
-	public DocumentType getType() {
+	public String getType() {
 		return type;
 	}
 
-	public void setType(DocumentType type) {
+	public void setType(String type) {
 		this.type = type;
 	}
 

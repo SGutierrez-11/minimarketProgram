@@ -11,26 +11,39 @@ public class Market {
 	private List<Document> doc;
 	
 	public Market() {
-		setDoc(new ArrayList<>());
+		doc = new ArrayList<>();
 	}
 	
-	public void addDocument(DocumentType type, int numberId, int day) throws NotTodayException, TIException{
+	public boolean addDocument(String type, int numberId, int day) throws NotTodayException, TIException{
 		
 		int id = numberId/10;
-		int penultime = numberId%10;
+		int penultime = id%10;
 		int numId = penultime%2;
 		
 		int numDay = day%2;
 		
-		if(type==DocumentType.TI) {
+		boolean process = false;
 		
-		
-		}
-		
-		if(numId==numDay) {
+		if(type.equals("TI")) {
+			
+			System.out.println("No se agregó por TI");
+			throw new TIException("TI");
+			
+		}else if(numId==numDay) {
+			
+			System.out.println("No se agregó por el día");			
+			throw new NotTodayException(day, penultime);
+			
+		}else {
+			
+			System.out.println("El cliente si ha podido ingresar..! ");
+			doc.add(new Document(type, numberId, day));
+			process = true;
 			
 		}
-		doc.add(new Document(type, numberId, day));
+		
+		System.out.println("Salí de los IF");
+		return process;
 	}
 	
 	public List<Document> getDoc() {
